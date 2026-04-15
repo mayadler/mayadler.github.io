@@ -1378,32 +1378,6 @@ export const teams: Team[] = [
     totalMinutesLost: 4680,
     players: [
       {
-        id: 'isak',
-        firstName: 'Alexander',
-        lastName: 'Isak',
-        position: 'ST',
-        kitNumber: 14,
-        age: 26,
-        nationality: '🇸🇪',
-        marketValue: '€90M',
-        injuryRisk: 43,
-        gamesPlayed: 30,
-        minutesPlayed: 2550,
-        injuries: 1,
-        minutesMissed: 540,
-        riskTrend: 7,
-        avgDistance: 10.4,
-        sprintsPerMatch: 36,
-        foulsAgainst: 2.2,
-        acuteChronicRatio: 1.18,
-        daysSinceLastInjury: 33,
-        matchDensity: 0.86,
-        image: '/src/imports/509348_alexander_isak_20251204163904.png',
-        injuryHistory: [
-          { date: '2026-02-18', diagnosis: 'Thigh injury', region: 'Left thigh', duration: '5 weeks', severity: 'Moderate' },
-        ]
-      },
-      {
         id: 'gordon',
         firstName: 'Anthony',
         lastName: 'Gordon',
