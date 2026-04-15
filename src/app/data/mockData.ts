@@ -80,7 +80,7 @@ export const teams: Team[] = [
         position: 'RW',
         kitNumber: 7,
         age: 24,
-        nationality: '🏴',
+        nationality: '🇬🇧',
         marketValue: '€140M',
         injuryRisk: 72,
         gamesPlayed: 28,
