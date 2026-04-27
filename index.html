@@ -9,7 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
 
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-right: 4px; /* Adjust spacing between words */
+}
 
+.word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
   #rotating-word {
   display: inline-block;
@@ -156,11 +167,33 @@
   }
 
   .hero-desc {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 480px;
-    margin-bottom: 3rem;
-    font-weight: 300;
+    <div class="hero-desc fade-up fade-up-3" id="typing-container">
+  <span class="word">A</span>
+  <span class="word">machine</span>
+  <span class="word">learning</span>
+  <span class="word">web</span>
+  <span class="word">application</span>
+  <span class="word">that</span>
+  <span class="word">forecasts</span>
+  <span class="word">injury</span>
+  <span class="word">risk</span>
+  <span class="word">for</span>
+  <span class="word">professional</span>
+  <span class="word">football</span>
+  <span class="word">players</span>
+  <span class="word">—</span>
+  <span class="word">so</span>
+  <span class="word">coaches</span>
+  <span class="word">can</span>
+  <span class="word">intervene</span>
+  <span class="word">before</span>
+  <span class="word">the</span>
+  <span class="word">whistle</span>
+  <span class="word">blows</span>
+  <span class="word">on</span>
+  <span class="word">a</span>
+  <span class="word">season.</span>
+</div>
   }
 
   .hero-actions {
@@ -973,5 +1006,17 @@ setInterval(() => {
 }, 2500);
 </script>
 
+document.addEventListener("DOMContentLoaded", () => {
+  const words = document.querySelectorAll("#typing-container .word");
+  const delay = 150; // Milliseconds between each word
+
+  words.forEach((word, index) => {
+    setTimeout(() => {
+      word.classList.add("visible");
+    }, index * delay);
+  });
+});
+
+  
 </body>
 </html>
