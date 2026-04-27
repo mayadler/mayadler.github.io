@@ -10,23 +10,6 @@
 <style>
 
 
-  .fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-up-1 { transition-delay: 0.1s; }
-.fade-up-2 { transition-delay: 0.2s; }
-.fade-up-3 { transition-delay: 0.3s; }
-.fade-up-4 { transition-delay: 0.4s; }
-.fade-up-5 { transition-delay: 0.5s; }
-
   #type-text span {
   opacity: 0;
   display: inline-block;
@@ -656,6 +639,57 @@
   .fade-up-2 { animation-delay: 0.2s; }
   .fade-up-3 { animation-delay: 0.35s; }
   .fade-up-4 { animation-delay: 0.5s; }
+
+  /* ── Scroll-reveal 3D animations ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(48px) rotateX(8deg) scale(0.96);
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+
+  .reveal.reveal-left {
+    transform: translateX(-52px) rotateY(8deg) scale(0.96);
+    transform-origin: right center;
+  }
+
+  .reveal.reveal-right {
+    transform: translateX(52px) rotateY(-8deg) scale(0.96);
+    transform-origin: left center;
+  }
+
+  .reveal.reveal-pop {
+    transform: translateY(32px) scale(0.88);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) rotateY(0) scale(1);
+  }
+
+  /* Staggered children inside grid parents */
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(44px) rotateX(6deg) scale(0.95);
+    transform-origin: top center;
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+
+  .stagger-children.in-view > *:nth-child(1) { transition-delay: 0.05s; opacity:1; transform:none; }
+  .stagger-children.in-view > *:nth-child(2) { transition-delay: 0.15s; opacity:1; transform:none; }
+  .stagger-children.in-view > *:nth-child(3) { transition-delay: 0.25s; opacity:1; transform:none; }
+  .stagger-children.in-view > *:nth-child(4) { transition-delay: 0.35s; opacity:1; transform:none; }
+  .stagger-children.in-view > *:nth-child(5) { transition-delay: 0.45s; opacity:1; transform:none; }
+  .stagger-children.in-view > *:nth-child(6) { transition-delay: 0.55s; opacity:1; transform:none; }
+  .stagger-children.in-view > *:nth-child(7) { transition-delay: 0.65s; opacity:1; transform:none; }
+  .stagger-children.in-view > *:nth-child(8) { transition-delay: 0.75s; opacity:1; transform:none; }
 </style>
 </head>
 <body>
@@ -694,7 +728,7 @@
 
 <section id="about">
   <div class="about-grid">
-    <div class="about-body">
+    <div class="about-body reveal reveal-left">
       <p class="section-label">About the Project</p>
       <h2>What is 2 to 3 Weeks?</h2>
       <p>In professional football, "2 to 3 weeks" is the most common phrase uttered when a player gets injured — a vague prognosis that leaves coaches, clubs, and fans in the dark. We decided to take that phrase and turn it into a prediction engine.</p>
@@ -730,8 +764,8 @@
       </ul>
     </div>
 
-    <div>
-      <div class="card fade-up">
+    <div class="reveal reveal-right">
+      <div class="risk-card">
         <div class="risk-header">
           <span class="risk-title">Squad Risk Overview</span>
           <span class="risk-badge">Live Demo</span>
@@ -801,22 +835,17 @@
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-
-<!-- SPRINTS -->
-
 <section id="sprints">
 
-  <p class="section-label">Development</p>
+  <p class="section-label reveal">Development</p>
 
-  <h2>Sprint Cycles</h2>
+  <h2 class="reveal">Sprint Cycles</h2>
 
-  <p style="color:var(--muted);max-width:540px;font-weight:300;font-size:0.95rem;">The project was built using Agile methodology across four two-week sprint cycles, each delivering a shippable increment of the product.</p>
+  <p class="reveal" style="color:var(--muted);max-width:540px;font-weight:300;font-size:0.95rem;">The project was built using Agile methodology across four two-week sprint cycles, each delivering a shippable increment of the product.</p>
 
-  <div class="sprints-grid">
+  <div class="sprints-grid stagger-children">
 
-    <div class="card fade-up">
+    <div class="sprint-card">
 
       <div class="sprint-num">Sprint 01 · Week 1</div>
 
@@ -834,11 +863,11 @@
 
       </ul>
 
-      <span class="card fade-up"><span class="status-dot"></span>Completed</span>
+      <span class="sprint-status status-done"><span class="status-dot"></span>Completed</span>
 
     </div>
 
-    <div class="card fade-up">
+    <div class="sprint-card">
 
       <div class="sprint-num">Sprint 02 · Week 2</div>
 
@@ -856,11 +885,11 @@
       
       </ul>
 
-      <span class="card fade-up"><span class="status-dot"></span>Completed</span>
+      <span class="sprint-status status-done"><span class="status-dot"></span>Completed</span>
 
     </div>
 
-    <div class="card fade-up">
+    <div class="sprint-card">
 
       <div class="sprint-num">Sprint 03 · Week 3</div>
 
@@ -879,11 +908,11 @@
 
       </ul>
 
-      <span class="card fade-up"><span class="status-dot"></span>In Progress</span>
+      <span class="sprint-status status-progress"><span class="status-dot"></span>In Progress</span>
 
     </div>
 
-    <div class="card fade-up">
+    <div class="sprint-card">
 
       <div class="sprint-num">Sprint 04 · Week 4</div>
 
@@ -897,7 +926,7 @@
 
       </ul>
 
-      <span class="card fade-up"><span class="status-dot"></span>Planned</span>
+      <span class="sprint-status status-planned"><span class="status-dot"></span>Planned</span>
 
     </div>
 
@@ -908,11 +937,11 @@
 <div class="section-divider"></div>
 
 <section id="expo">
-  <p class="section-label">Event</p>
-  <h2>Project Expo</h2>
-  <p style="color:var(--muted);max-width:540px;font-weight:300;font-size:0.95rem;">Join us at the final demo where we'll present the live application, our methodology, findings, and lessons learned.</p>
+  <p class="section-label reveal">Event</p>
+  <h2 class="reveal">Project Expo</h2>
+  <p class="reveal" style="color:var(--muted);max-width:540px;font-weight:300;font-size:0.95rem;">Join us at the final demo where we'll present the live application, our methodology, findings, and lessons learned.</p>
 
-  <div class="expo-wrapper">
+  <div class="expo-wrapper reveal">
     <div class="expo-banner">
       <h3>2 to 3 Weeks — Final Demo</h3>
     </div>
@@ -936,60 +965,60 @@
 <div class="section-divider"></div>
 
 <section id="team">
-  <p class="section-label">The Team</p>
-  <h2>Group Members</h2>
-  <div class="team-grid">
+  <p class="section-label reveal">The Team</p>
+  <h2 class="reveal">Group Members</h2>
+  <div class="team-grid stagger-children">
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">AA</div>
       <div class="member-name">August Ardhe</div>
       <div class="member-role">Product Owner & Developer</div>
       <div class="member-email">august@example.com</div>
     </div>
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">MÅ</div>
       <div class="member-name">Max Åstrand</div>
       <div class="member-role">Developer</div>
       <div class="member-email">max@example.com</div>
     </div>
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">JC</div>
       <div class="member-name">Joel Celinder</div>
       <div class="member-role">Developer</div>
       <div class="member-email">joel@example.com</div>
     </div>
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">MD</div>
       <div class="member-name">Maya Dler Tawfik</div>
       <div class="member-role">Scrum Master & Developer</div>
       <div class="member-email">maya@example.com</div>
     </div>
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">NK</div>
       <div class="member-name">Navneet Kaur</div>
       <div class="member-role">Developer</div>
       <div class="member-email">nkaur@kth.se</div>
     </div>
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">AM</div>
       <div class="member-name">Aryan Masiul</div>
       <div class="member-role">Developer</div>
       <div class="member-email">aryan@example.com</div>
     </div>
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">LN</div>
       <div class="member-name">Lukas Noel</div>
       <div class="member-role">Developer</div>
       <div class="member-email">lukas@example.com</div>
     </div>
 
-    <div class="card fade-up">
+    <div class="member-card">
       <div class="member-avatar">LV</div>
       <div class="member-name">Leon Vesterlund</div>
       <div class="member-role">Developer</div>
@@ -1072,29 +1101,31 @@ textEl.innerHTML = "";
   }, i * 20); // speed (lower = faster)
 });
 </script>
-
-
-
-
-  <script>
-const elements = document.querySelectorAll(".fade-up");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const delay = entry.target.dataset.delay || 0;
-      entry.target.style.transitionDelay = delay + "ms";
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-
-elements.forEach((el, i) => {
-  el.dataset.delay = i * 100; // auto stagger
-  observer.observe(el);
-});
-</script>
   
+<script>
+// ── Scroll-reveal observer ──
+(function () {
+  const THRESHOLD = 0.12;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          // Only trigger once
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: THRESHOLD, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  // Observe single-element reveals
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  // Observe stagger containers
+  document.querySelectorAll('.stagger-children').forEach((el) => observer.observe(el));
+})();
+</script>
 </body>
 </html>
