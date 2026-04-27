@@ -13,13 +13,11 @@
   #type-text span {
   opacity: 0;
   display: inline-block;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.05s ease;
 }
 
 #type-text span.show {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .word {
@@ -1038,21 +1036,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-  <script>
+ <script>
 const textEl = document.getElementById("type-text");
 const text = textEl.innerText;
+
 textEl.innerHTML = "";
 
-const words = text.split(" ");
-
-words.forEach((word, i) => {
+[...text].forEach((char, i) => {
   const span = document.createElement("span");
-  span.textContent = word + " ";
+
+  // preserve spaces properly
+  span.textContent = char === " " ? "\u00A0" : char;
+
   textEl.appendChild(span);
 
   setTimeout(() => {
     span.classList.add("show");
-  }, i * 120); // controls speed
+  }, i * 20); // speed (lower = faster)
 });
 </script>
   
