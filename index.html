@@ -9,6 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
 
+
+  #type-text span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#type-text span.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .word {
   display: inline-block;
   opacity: 0;
@@ -648,7 +661,9 @@
   </div>
   <p class="hero-tag fade-up fade-up-1">Injury Risk Prediction · Football</p>
   <h1 class="fade-up fade-up-2">predict. <em><span id="rotating-word">protect</span></em>. perform.</h1>
-  <p class="hero-desc fade-up fade-up-3">A machine learning web application that forecasts injury risk for professional football players — so coaches can intervene before the whistle blows on a season.</p>
+  <p class="hero-desc fade-up fade-up-3" id="type-text">
+  A machine learning web application that forecasts injury risk for professional football players — so coaches can intervene before the whistle blows on a season.
+</p>
   <div class="hero-actions fade-up fade-up-4">
     <a href="#about" class="btn-primary">Explore the Project ↓</a>
     <a href="#expo" class="btn-ghost">View Expo Details</a>
@@ -1017,6 +1032,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+  <script>
+const textEl = document.getElementById("type-text");
+const text = textEl.innerText;
+textEl.innerHTML = "";
+
+const words = text.split(" ");
+
+words.forEach((word, i) => {
+  const span = document.createElement("span");
+  span.textContent = word + " ";
+  textEl.appendChild(span);
+
+  setTimeout(() => {
+    span.classList.add("show");
+  }, i * 120); // controls speed
+});
+</script>
   
 </body>
 </html>
