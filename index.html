@@ -10,6 +10,23 @@
 <style>
 
 
+  .fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up-1 { transition-delay: 0.1s; }
+.fade-up-2 { transition-delay: 0.2s; }
+.fade-up-3 { transition-delay: 0.3s; }
+.fade-up-4 { transition-delay: 0.4s; }
+.fade-up-5 { transition-delay: 0.5s; }
+
   #type-text span {
   opacity: 0;
   display: inline-block;
@@ -714,7 +731,7 @@
     </div>
 
     <div>
-      <div class="risk-card">
+      <div class="card fade-up">
         <div class="risk-header">
           <span class="risk-title">Squad Risk Overview</span>
           <span class="risk-badge">Live Demo</span>
@@ -799,7 +816,7 @@
 
   <div class="sprints-grid">
 
-    <div class="sprint-card">
+    <div class="card fade-up">
 
       <div class="sprint-num">Sprint 01 · Week 1</div>
 
@@ -817,11 +834,11 @@
 
       </ul>
 
-      <span class="sprint-status status-done"><span class="status-dot"></span>Completed</span>
+      <span class="card fade-up"><span class="status-dot"></span>Completed</span>
 
     </div>
 
-    <div class="sprint-card">
+    <div class="card fade-up">
 
       <div class="sprint-num">Sprint 02 · Week 2</div>
 
@@ -839,11 +856,11 @@
       
       </ul>
 
-      <span class="sprint-status status-done"><span class="status-dot"></span>Completed</span>
+      <span class="card fade-up"><span class="status-dot"></span>Completed</span>
 
     </div>
 
-    <div class="sprint-card">
+    <div class="card fade-up">
 
       <div class="sprint-num">Sprint 03 · Week 3</div>
 
@@ -862,11 +879,11 @@
 
       </ul>
 
-      <span class="sprint-status status-progress"><span class="status-dot"></span>In Progress</span>
+      <span class="card fade-up"><span class="status-dot"></span>In Progress</span>
 
     </div>
 
-    <div class="sprint-card">
+    <div class="card fade-up">
 
       <div class="sprint-num">Sprint 04 · Week 4</div>
 
@@ -880,7 +897,7 @@
 
       </ul>
 
-      <span class="sprint-status status-planned"><span class="status-dot"></span>Planned</span>
+      <span class="card fade-up"><span class="status-dot"></span>Planned</span>
 
     </div>
 
@@ -923,56 +940,56 @@
   <h2>Group Members</h2>
   <div class="team-grid">
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">AA</div>
       <div class="member-name">August Ardhe</div>
       <div class="member-role">Product Owner & Developer</div>
       <div class="member-email">august@example.com</div>
     </div>
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">MÅ</div>
       <div class="member-name">Max Åstrand</div>
       <div class="member-role">Developer</div>
       <div class="member-email">max@example.com</div>
     </div>
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">JC</div>
       <div class="member-name">Joel Celinder</div>
       <div class="member-role">Developer</div>
       <div class="member-email">joel@example.com</div>
     </div>
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">MD</div>
       <div class="member-name">Maya Dler Tawfik</div>
       <div class="member-role">Scrum Master & Developer</div>
       <div class="member-email">maya@example.com</div>
     </div>
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">NK</div>
       <div class="member-name">Navneet Kaur</div>
       <div class="member-role">Developer</div>
       <div class="member-email">nkaur@kth.se</div>
     </div>
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">AM</div>
       <div class="member-name">Aryan Masiul</div>
       <div class="member-role">Developer</div>
       <div class="member-email">aryan@example.com</div>
     </div>
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">LN</div>
       <div class="member-name">Lukas Noel</div>
       <div class="member-role">Developer</div>
       <div class="member-email">lukas@example.com</div>
     </div>
 
-    <div class="member-card">
+    <div class="card fade-up">
       <div class="member-avatar">LV</div>
       <div class="member-name">Leon Vesterlund</div>
       <div class="member-role">Developer</div>
@@ -1053,6 +1070,29 @@ textEl.innerHTML = "";
   setTimeout(() => {
     span.classList.add("show");
   }, i * 20); // speed (lower = faster)
+});
+</script>
+
+
+
+
+  <script>
+const elements = document.querySelectorAll(".fade-up");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = entry.target.dataset.delay || 0;
+      entry.target.style.transitionDelay = delay + "ms";
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+elements.forEach((el, i) => {
+  el.dataset.delay = i * 100; // auto stagger
+  observer.observe(el);
 });
 </script>
   
