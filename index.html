@@ -54,27 +54,6 @@
   }
   @keyframes rise{ to{opacity:1; transform:translateY(0);} }
 
-  /* big outline numerals as quiet section markers */
-  .idx{
-    position:absolute;
-    top:-14px;
-    right:24px;
-    font-family:var(--font-display);
-    font-style:italic;
-    font-weight:600;
-    font-size:150px;
-    line-height:1;
-    color:transparent;
-    -webkit-text-stroke:1.5px currentColor;
-    opacity:0.14;
-    pointer-events:none;
-    user-select:none;
-  }
-  section.dark .idx{color:var(--cream);}
-  section.light .idx{color:var(--moss);}
-  .contact .idx{color:var(--cream);}
-  @media (max-width:640px){ .idx{font-size:96px; right:8px;} }
-
   /* ---------- SECTION SHELL — flat colors only ---------- */
   section{padding:96px 0;}
   section.dark{background:var(--moss); color:var(--cream);}
@@ -191,6 +170,7 @@
     font-weight:450;
   }
   .hero-role{
+    font-family:var(--font-body);
     margin-top:26px;
     font-size:19px;
     color:var(--moss-mist);
@@ -437,8 +417,6 @@
     font-weight:600;
     font-size:13px;
   }
-  .contact-card-arrow{color:var(--moss-mist); font-size:15px; transition:transform 0.2s ease, color 0.2s ease;}
-  .contact-card:hover .contact-card-arrow{color:var(--gold); transform:translate(3px,-3px);}
   .contact-card-label{font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--moss-mist);}
   .contact-card-value{font-family:var(--font-display); font-size:17px; font-weight:500; margin-top:5px;}
   .foot-note{
@@ -466,8 +444,8 @@
 <header class="nav">
     <div class="nav-inner">
       <a class="nav-logo" href="#">
-        <span class="nav-logo-mark">YN</span>
-        Your Name
+        <span class="nav-logo-mark">MD</span>
+        Maya Dler Tawfik
       </a>
       <ul class="nav-links">
         <li><a href="#about">Introduction</a></li>
@@ -481,8 +459,8 @@
   <!-- HERO -->
   <section class="hero">
     <div class="col">
-      <h1 class="hero-name reveal" style="animation-delay:0.06s;"> Maya Dler Tawfik
-      <p class="hero-role reveal" style="animation-delay:0.12s;">Second-year <b>MEng Infomration Technology</b> student at <b>KTH</b></p>
+      <h1 class="hero-name reveal" style="animation-delay:0.06s;">Maya Dler Tawfik</h1>
+      <p class="hero-role reveal" style="animation-delay:0.12s;">Second-year <b>MEng Information Technology</b> student at <b>KTH</b>.</p>
       <div class="hero-links reveal" style="animation-delay:0.18s;">
         <a class="btn btn-fill" href="#work">See the work</a>
         <a class="btn btn-line" href="#contact">Say hello</a>
@@ -493,11 +471,9 @@
   <!-- ABOUT -->
   <section class="light" id="about">
     <div class="col">
-      <div class="idx">01</div>
       <div class="label">Introduction</div>
       <div class="about">
-        <p>I'm a second-year <strong>ICT Engineering</strong> student at KTH, spending most of my time at the frontend — turning specs, models, and mock data into interfaces people can actually read at a glance.</p>
-        <p>On team projects I've also run point as <strong>Scrum Master</strong>: sprint planning, retrospectives, keeping the team honest about scope. Same instinct either way — cut the noise, keep it legible.</p>
+        <p>I'm a third-year Information Technology student at KTH, with hands-on experience across both frontend and backend development. I work comfortably in Java, C++, SQL, HTML, CSS, and JavaScript, and enjoy the full stack, from structuring data on the backend to building the interfaces that make it usable. I'm currently looking to grow that experience further through frontend and software development roles.</p>
         <span class="pull-tag">Currently looking for frontend & software roles.</span>
       </div>
     </div>
@@ -506,29 +482,27 @@
   <!-- PROJECTS -->
   <section class="dark" id="work">
     <div class="col">
-      <div class="idx">02</div>
       <div class="label">Projects</div>
       <div class="project-grid">
 
-        <a class="project-card" href="https://your-saga-link.com" target="_blank" rel="noopener">
+        <a class="project-card" href="https://your-ifg-link.com" target="_blank" rel="noopener">
           <div class="project-cover c-gold">
-            <span class="project-cover-idx">01 / SAGA</span>
-            <span class="project-mono">S</span>
+            <span class="project-cover-idx">01 / IFG</span>
+            <span class="project-mono">IF</span>
           </div>
           <div class="project-body">
             <div class="project-title-row">
-              <span class="project-title">Saga</span>
-              <span class="project-date">In progress</span>
+              <span class="project-title">Interactive Fiction Game</span>
             </div>
-            <div class="project-role">Sports analytics dashboard — Frontend Developer & Scrum Master</div>
-            <p class="project-desc">A dashboard surfacing player and team performance data through a componentized, localized React interface. Built the frontend and ran sprint ceremonies for the team behind it.</p>
+            <div class="project-role">Built on DTEK V hardware</div>
+            <p class="project-desc">A text-driven adventure running on the DTEK V board, with 9 distinct places to visit and interact with. The world responds to player choices, reads input from onboard I/O devices like timers and switches, and tracks win conditions through to completion.</p>
             <div class="project-tags">
-              <span class="tag">React</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">Tailwind</span>
-              <span class="tag">Firebase</span>
+              <span class="tag">DTEK V</span>
+              <span class="tag">I/O programming</span>
+              <span class="tag">Game logic</span>
+              <span class="tag">C</span>
             </div>
-            <span class="project-link">View project ↗</span>
+            <span class="project-link">View project</span>
           </div>
         </a>
 
@@ -540,16 +514,19 @@
           <div class="project-body">
             <div class="project-title-row">
               <span class="project-title">2 to 3 Weeks</span>
-              <span class="project-date">Shipped</span>
             </div>
             <div class="project-role">Football injury risk prediction — Scrum Master & Frontend Developer</div>
             <p class="project-desc">A machine learning model predicting football injury risk, presented through an animated single-page showcase built for a live expo audience. Led sprint ceremonies for the team building the model.</p>
             <div class="project-tags">
+              <span class="tag">FastAPI</span>
               <span class="tag">XGBoost</span>
-              <span class="tag">Data storytelling</span>
-              <span class="tag">Scrum</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">React</span>
+              <span class="tag">ML Model</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
             </div>
-            <span class="project-link">View project ↗</span>
+            <span class="project-link">View project</span>
           </div>
         </a>
 
@@ -560,15 +537,13 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="col">
-      <div class="idx">03</div>
       <div class="label">Contact</div>
       <div class="contact-heading">Get in touch</div>
       <p class="contact-sub">Open to frontend and software development roles. Based in Stockholm, happy to talk remote too.</p>
       <div class="contact-grid">
-        <a class="contact-card" href="mailto:you@example.com">
+        <a class="contact-card" href="mailto:maya.dler2005@gmail.com">
           <div class="contact-card-top">
             <span class="contact-icon">@</span>
-            <span class="contact-card-arrow">↗</span>
           </div>
           <div>
             <div class="contact-card-label">Email</div>
@@ -578,7 +553,6 @@
         <a class="contact-card" href="#" target="_blank" rel="noopener">
           <div class="contact-card-top">
             <span class="contact-icon">in</span>
-            <span class="contact-card-arrow">↗</span>
           </div>
           <div>
             <div class="contact-card-label">LinkedIn</div>
@@ -588,7 +562,6 @@
         <a class="contact-card" href="#" target="_blank" rel="noopener">
           <div class="contact-card-top">
             <span class="contact-icon">{ }</span>
-            <span class="contact-card-arrow">↗</span>
           </div>
           <div>
             <div class="contact-card-label">GitHub</div>
@@ -597,7 +570,7 @@
         </a>
       </div>
       <div class="foot-note">
-        <span>Maya Dler Tawfik</span>
+        <span>© 2026 Maya Dler Tawfik</span>
         <span>Stockholm, Sweden</span>
       </div>
     </div>
