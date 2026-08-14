@@ -222,53 +222,6 @@
     z-index:1;
   }
 
-  /* ---------- PROJECTS ---------- */
-  .project-list{position:relative; z-index:1;}
-  .row{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:24px;
-    padding:26px 20px;
-    margin:0 -20px;
-    border-radius:14px;
-    transition:background 0.25s ease, transform 0.2s ease;
-  }
-  section.dark .row:hover{background:rgba(246,242,233,0.08); transform:translateX(6px);}
-  section.light .row:hover{background:rgba(55,69,46,0.06); transform:translateX(6px);}
-  .row-main{flex:1;}
-  .row-title{
-    font-family:var(--font-display);
-    font-size:24px;
-    font-weight:600;
-  }
-  .row-org{font-size:14.5px; margin-top:5px;}
-  .row-desc{font-size:15px; margin-top:10px; max-width:480px;}
-  .row-tags{
-    margin-top:14px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-  .tag{
-    font-family:var(--font-body);
-    font-size:11.5px;
-    font-weight:500;
-    padding:5px 11px;
-    border-radius:100px;
-    background:rgba(211,162,74,0.16);
-    color:var(--gold);
-  }
-  section.light .tag{background:rgba(55,69,46,0.08); color:var(--moss);}
-  .row-date{
-    font-family:var(--font-display);
-    font-style:italic;
-    font-size:14px;
-    color:var(--gold);
-    white-space:nowrap;
-    padding-top:4px;
-  }
-
   /* ---------- PROJECTS SHOWCASE ---------- */
   .project-grid{
     position:relative;
@@ -293,22 +246,26 @@
     align-items:center;
     justify-content:center;
     position:relative;
+    overflow:hidden;
+    background:var(--moss-deep);
   }
-
-    .project-cover-img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .project-cover-video{
+  .project-cover.c-gold{background:var(--gold);}
+  .project-cover.c-cream{background:var(--cream);}
+  .project-cover-video{
     width:100%;
     height:100%;
     object-fit:cover;
   }
-  
-  .project-cover.c-gold{background:var(--gold);}
-  .project-cover.c-cream{background:var(--cream);}
+  .project-cover-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  /* logos / flat graphics: show the whole image instead of cropping it */
+  .project-cover-img.contain{
+    object-fit:contain;
+    padding:36px;
+  }
   .project-mono{
     font-family:var(--font-display);
     font-weight:700;
@@ -358,6 +315,15 @@
     display:flex;
     flex-wrap:wrap;
     gap:8px;
+  }
+  .tag{
+    font-family:var(--font-body);
+    font-size:11.5px;
+    font-weight:500;
+    padding:5px 11px;
+    border-radius:100px;
+    background:rgba(211,162,74,0.16);
+    color:var(--gold);
   }
   .project-link{
     margin-top:22px;
@@ -521,8 +487,8 @@
         </a>
 
         <a class="project-card" href="https://www.2to3weeks.com" target="_blank" rel="noopener">
-          <div class="project-cover">
-            <img src="images/logo.png" alt="Interactive Fiction Game screenshot" class="project-cover-img">
+          <div class="project-cover c-cream">
+            <img src="images/logo.png" alt="2 to 3 Weeks logo" class="project-cover-img contain">
           </div>
           <div class="project-body">
             <div class="project-title-row">
@@ -563,7 +529,7 @@
             <div class="contact-card-value">maya.dler2005@gmail.com</div>
           </div>
         </a>
-        <a class="contact-card" href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://se.linkedin.com/in/maya-dler-tawfik-76b090162&ved=2ahUKEwiaw8TB5ZOWAxX2IxAIHToOAXwQFnoECBkQAQ&usg=AOvVaw0soJ6olJihkw76zHCIkCYS" target="_blank" rel="noopener">
+        <a class="contact-card" href="https://se.linkedin.com/in/maya-dler-tawfik-76b090162" target="_blank" rel="noopener">
           <div class="contact-card-top">
             <span class="contact-icon">in</span>
           </div>
